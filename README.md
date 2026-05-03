@@ -27,7 +27,7 @@ These strategies ensure the data contains useful insights like seasonal trends, 
 Follow these steps in order to generate the complete synthetic dataset:
 
 1. **Explore online datasets for inspiration**:
-   I personally took inspiration from [this dataset]{https://www.kaggle.com/datasets/rkiattisak/traveler-trip-data} for the basic structure.
+   I personally took inspiration from [this dataset](https://www.kaggle.com/datasets/rkiattisak/traveler-trip-data) for the basic structure.
 
 2. **Work a description document detailing all features in the dataset and relationships that should be found in it**
    Use AI tools to do this. Be very precise. End result in this case is `datageneration.md`.
