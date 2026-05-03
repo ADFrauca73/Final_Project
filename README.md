@@ -1,6 +1,8 @@
 # Travel Agency Synthetic Data Generation
 
-This repository contains scripts for generating synthetic datasets for a travel agency capstone project. The code creates plausible transaction and review data with embedded insights for analysis and modeling.
+This repository contains an example for how to generate a synthetic dataset for a data analytics mock project. The code creates plausible transaction and review data with embedded insights for analysis and modeling.
+
+Project by Adrian Frauca. Email: adf73@georgetown.edu
 
 ## Data Generation Strategies
 
@@ -20,39 +22,38 @@ The synthetic data generation employs several strategies to create realistic dat
 
 These strategies ensure the data contains useful insights like seasonal trends, demographic correlations, profitability analysis, and customer sentiment patterns.
 
-## Running the Scripts
+## Process for creating a project like this one.
 
 Follow these steps in order to generate the complete synthetic dataset:
 
-1. **Download Original Data**:
-   ```bash
-   python download.py
-   ```
-   This downloads a real travel dataset from Kaggle for reference.
+1. **Explore online datasets for inspiration**:
+   I personally took inspiration from [this dataset]{https://www.kaggle.com/datasets/rkiattisak/traveler-trip-data} for the basic structure.
 
-2. **Explore and Clean Original Data**:
-   ```bash
-   python basicexploration.py
-   ```
-   Performs initial exploration and cleaning of the downloaded data, creating a cleaned version.
+2. **Work a description document detailing all features in the dataset and relationships that should be found in it**
+   Use AI tools to do this. Be very precise. End result in this case is `datageneration.md`.
 
 3. **Generate Synthetic Transactions**:
    ```bash
    python datageneration.py
    ```
-   Creates 10,000 synthetic transactions with clients, destinations, costs, and agency metrics.
+   Creates 10,000 synthetic transactions with clients, destinations, costs, and agency metrics. Also creates custom prompts for text reviews.
+   
+   This project should be generated following the specifications written down in the previous stage. AI tools help for this, but some code literacy is needed to validate that what's being output is actually what you want.
 
 4. **Generate Review Prompts**:
    ```bash
    python promptgeneration.py
    ```
-   Uses transformer models to generate review prompts based on transaction data. Requires a Hugging Face API key set as `HUGGINGFACE_KEY` environment variable.
+   Uses transformer models to generate reviews out of the prompts generated in the previous step. Requires a Hugging Face API key set as `HUGGINGFACE_KEY` environment variable. Need to create this API key via HuggingFace. Follow online tutorials for this.
+
 
 5. **Clean Generated Reviews**:
    ```bash
    python review_cleaning.py
    ```
    Processes and cleans the generated reviews, adding variations and removing artifacts.
+
+   Last minute hand-crafted retouches.
 
 6. **Validate Patterns**:
    ```bash
